@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }) {
     styles: {
       global: {
         body: {
-          background: "#1E1E1E", // Set your desired background color
+          background: "#1E1E1E",
         },
       },
     },
