@@ -43,6 +43,16 @@ export default function Hero() {
           transform="translateX(-50%) translateY(100px)"
           alt=""
         />
+        <Image
+          src="soon.png"
+          position="absolute"
+          left="70%"
+          top="140px"
+          h={"180px"}
+          w={"auto"}
+          transform="translateX(-50%) translateY(100px)"
+          alt=""
+        />
       </SlideFade>
 
       <Fade in={assetsOpen}>
