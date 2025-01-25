@@ -4,6 +4,7 @@ import {
   useDisclosure,
   SlideFade,
   Fade,
+  Flex,
   useBreakpointValue,
 } from "@chakra-ui/react";
 
@@ -14,7 +15,7 @@ export default function Hero() {
   const { isOpen: assetsOpen, onOpen: onAssetsOpen } = useDisclosure();
 
   const imageHeight = useBreakpointValue({
-    base: "250px",
+    base: "200px",
     lg: "300px",
     xl: "400px",
     "2xl": "450px",
@@ -34,51 +35,50 @@ export default function Hero() {
       h="100vh"
       position="relative"
     >
-      <SlideFade in={titleOpen} offsetY="-20px">
+      <SlideFade in={titleOpen} offsetY="-10px">
         <Image
           src="logo.png"
           position="absolute"
           left="50%"
           top="0"
-          transform="translateX(-50%) translateY(100px)"
+          transform="translateX(-50%) translateY(50px)"
           alt=""
         />
         <Image
           src="soon.png"
           position="absolute"
-          left="70%"
-          top="140px"
-          h={"180px"}
+          left={["70%", "50%"]}
+          top={["60px", "120px", "140px"]}
+          h={["100px", "140px", "180px"]}
           w={"auto"}
-          transform="translateX(-50%) translateY(100px)"
+          transform="translateY(50px)"
           alt=""
         />
       </SlideFade>
 
-      <Fade in={assetsOpen}>
-        <Image
-          src="/goth.png"
-          position="absolute"
-          left={{ base: "100px", xl: "150px", "2xl": "200px" }}
-          bottom={0}
-          w="auto"
-          h={imageHeight}
-          transform="scaleX(-1)"
-          alt=""
-        />
-      </Fade>
+      <Flex
+        position={"absolute"}
+        bottom={0}
+        justify={"space-between"}
+        w={["fit-content", "100%", "100%", "100%", "100%", "100%"]}
+      >
+        <Fade in={assetsOpen}>
+          <Image
+            src="/goth.png"
+            w="auto"
+            h={imageHeight}
+            transform="scaleX(-1)"
+            alt=""
+          />
+        </Fade>
+        <Fade in={assetsOpen}>
+          <Image src="/sign.png" w="auto" h={imageHeight} alt="" />
+        </Fade>
 
-      <Fade in={assetsOpen}>
-        <Image
-          src="/hot-blonde.png"
-          position="absolute"
-          right={{ base: "100px", xl: "150px", "2xl": "200px" }}
-          bottom="5px"
-          w="auto"
-          h={imageHeight}
-          alt=""
-        />
-      </Fade>
+        <Fade in={assetsOpen}>
+          <Image src="/hot-blonde.png" w="auto" h={imageHeight} alt="" />
+        </Fade>
+      </Flex>
     </Box>
   );
 }
