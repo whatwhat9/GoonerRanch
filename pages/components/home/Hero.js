@@ -16,9 +16,10 @@ export default function Hero() {
 
   const imageHeight = useBreakpointValue({
     base: "200px",
-    lg: "300px",
+    md: "400px",
+    lg: "400px",
     xl: "400px",
-    "2xl": "450px",
+    "2xl": "650px",
   });
 
   useEffect(() => {
